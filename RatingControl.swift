@@ -34,7 +34,7 @@ class RatingControl: UIStackView {
     
 
     /*
-    // Only override draw() if you perform custom drawing.
+    // Only override draw() if you perform custom drawing. 2
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
