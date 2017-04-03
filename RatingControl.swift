@@ -13,6 +13,7 @@ class RatingControl: UIStackView {
     
     private var ratingButtons = [UIButton]()
     
+    // init des variables
     var rating = 0
     
     @IBDesignable class RatingControl: UIStackView{
