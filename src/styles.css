@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+html{
+    background-color: #f3f3f3;
+    font-family: 'Fresca', sans-serif;
+}
+body{
+    margin: 0;
+}
+h1, h2{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    width: 960px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.wrapper img{
+    display: block;
+    margin: 0 auto;
+}
