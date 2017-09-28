@@ -16,7 +16,10 @@ export class AppComponent implements OnInit {
 
   title = 'Edouard. New Angular 4 App';
 
+  secondTitle = 'second title';
+
   date = new Date();
+
 
   findDay = function(){
     if (this.date.getDate() < 10) {
