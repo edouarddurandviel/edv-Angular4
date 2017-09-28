@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
   title = 'Edouard. New Angular 4 App';
 
-  secondTitle = 'second title';
+  secondTitle = 'second title for ng4';
 
   date = new Date();
 
