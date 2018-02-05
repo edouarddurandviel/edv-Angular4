@@ -1,22 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
-html{
-    background-color: #f3f3f3;
-    font-family: 'Fresca', sans-serif;
+
+.new-list-component{
+  margin: 10px 0;
+  padding: 10px;
+  background: #DBDBFF;
+  border: 1px solid #C4C4C4;
+  border-radius: 4px;
 }
-body{
-    margin: 0;
+.photos-desc{
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-h1, h2{
-    margin: 0;
-    padding: 0;
+products, products-desc{
+  min-height: 1000px;
+  display: block;
 }
-.wrapper{
-    width: 960px;
-    text-align: center;
-    margin: 0 auto;
-    background-color: #fff;
+p{
+  margin: 0;
+  line-height: 18px;
 }
-.wrapper img{
-    display: block;
-    margin: 0 auto;
+.members h2{
+  margin: 30px 0;
+}
+.members button{
+  height: 38px;
+  margin-top: 32px;
+}
+.clear-both{
+  clear: both;
+  width: 90%;
+  margin-left: 15px;
+}
+.experiences-list-items, .skills-list-items{
+  margin: 10px 0;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.card{
+  margin-bottom: 30px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
 }
