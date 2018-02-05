@@ -19,4 +19,5 @@ import { HttpModule } from '@angular/http';
   providers: [ ContentService ],
   bootstrap: [ AppComponent ]
 })
+
 export class AppModule { }
