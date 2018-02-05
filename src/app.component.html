@@ -1,0 +1,14 @@
+
+<header>
+<h1 *ngIf='appStatus'>{{name}}</h1>
+<breadcrumb></breadcrumb>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/Members" routerLinkActive="active">Members CV</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/BuildList" routerLinkActive="active">Build list</a>
+    </li>
+</ul>
+</header>
+<router-outlet></router-outlet>
