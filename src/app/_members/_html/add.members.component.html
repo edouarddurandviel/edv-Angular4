@@ -1,0 +1,43 @@
+<div class="col-12 members">
+  <form (ngSubmit)="_onSubmit(model); memberForm.reset()" #memberForm="ngForm">
+      <div class="row"><div class="col-12">  <h2>Add a new member !</h2></div></div>
+    <div class="row">
+    <div class="col-3">
+        <div class="form-group">
+          <label for="firstname">Firstname: </label>
+            <input type="text" class="form-control" id="firstname" required
+            [(ngModel)]="model.firstname" placeholder="firstname" name="firstname" #firstname="ngModel" />
+            <div *ngIf="firstname.invalid && firstname.dirty" class="alert alert-danger">
+                Name is required.
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+          <label for="lastname">Lastname: </label>
+            <input type="text" class="form-control" id="lastname" required
+            [(ngModel)]="model.lastname" placeholder="lastname" name="lastname" #lastname="ngModel"/>
+            <div *ngIf="lastname.invalid && lastname.dirty" class="alert alert-danger">
+                lastname is required.
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+          <label for="job">Job name: </label>
+            <input type="text" class="form-control" id="job" required
+            [(ngModel)]="model.jobtitle" placeholder="jobtitle" name="jobtitle" #job="ngModel"/>
+            <div *ngIf="job.invalid && job.dirty" class="alert alert-danger">
+                jobtitle is required.
+            </div>
+        </div>
+    </div>
+      <button [disabled]="memberForm.invalid" type="submit" class="btn btn-success">Add Member</button>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-6">
+    </div>
+  </div>
+  <div #parents></div>
+</div>
