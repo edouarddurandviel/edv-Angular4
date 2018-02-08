@@ -1,5 +1,6 @@
 <div class="col-12 experience">
-  <h3 class="clear-both" *ngIf='iMemberSummary'>{{iMemberSummary.firstname}} {{iMemberSummary.lastname}} - {{iMemberSummary.jobtitle}}</h3>
+
+<h2 *ngFor='let expe of experiences'>{{expe.id}}</h2>
   <form (ngSubmit)="_onSubmit(model); experienceForm.reset()" #experienceForm="ngForm">
       <div class="row"><div class="col-12">  <h2>Add a new experience !</h2></div></div>
     <div class="row">
@@ -9,7 +10,7 @@
             <input type="text" class="form-control" id="job" required
             [(ngModel)]="model.job" placeholder="job" name="job" #job="ngModel" />
             <div *ngIf="job.invalid && job.dirty" class="alert alert-danger">
-                Name is required.
+                Job title is required.
             </div>
         </div>
     </div>
@@ -19,7 +20,7 @@
             <input type="text" class="form-control" id="company" required
             [(ngModel)]="model.company" placeholder="company" name="company" #company="ngModel"/>
             <div *ngIf="company.invalid && company.dirty" class="alert alert-danger">
-                company is required.
+                Company name is required.
             </div>
         </div>
     </div>
@@ -29,7 +30,7 @@
             <input type="text" class="form-control" id="began" required
             [(ngModel)]="model.began" placeholder="jobtitle" name="began" #began="ngModel"/>
             <div *ngIf="began.invalid && began.dirty" class="alert alert-danger">
-                began is required.
+                this field is required.
             </div>
         </div>
     </div>
@@ -42,7 +43,7 @@
           <input type="text" class="form-control" id="ended" required
           [(ngModel)]="model.ended" placeholder="ended" name="ended" #ended="ngModel" />
           <div *ngIf="ended.invalid && ended.dirty" class="alert alert-danger">
-              ended is required.
+              this field is required.
           </div>
       </div>
   </div>
@@ -52,7 +53,7 @@
           <input type="text" class="form-control" id="city" required
           [(ngModel)]="model.city" placeholder="city" name="city" #city="ngModel"/>
           <div *ngIf="city.invalid && city.dirty" class="alert alert-danger">
-              city is required.
+              City is required.
           </div>
       </div>
   </div>
@@ -62,18 +63,14 @@
           <input type="text" class="form-control" id="description" required
           [(ngModel)]="model.description" placeholder="description" name="description" #description="ngModel"/>
           <div *ngIf="description.invalid && description.dirty" class="alert alert-danger">
-              description is required.
+              Description is required.
           </div>
       </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-12"><button [disabled]="experienceForm.invalid" class="btn btn-success">Add Member</button></div>
+  <div class="col-12"><button [disabled]="experienceForm.invalid" class="btn btn-success">Add Experience</button></div>
 </div>
 </form>
-  <div class="row">
-    <div class="col-6">
-    </div>
-  </div>
-  <div #pro></div>
+<div #pro></div>
 </div>

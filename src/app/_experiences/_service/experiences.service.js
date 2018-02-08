@@ -69,6 +69,11 @@ var ExperienceService = (function () {
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
+    ExperienceService.prototype.getThisMemberExperience = function (memberId, id) {
+        return this._http.get(this._experiencesUrl + '/Members/' + memberId + '/experience/' + id)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
     // erreurs
     ExperienceService.prototype.handleError = function (error) {
         console.error(error);

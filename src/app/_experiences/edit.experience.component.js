@@ -13,60 +13,53 @@ var core_1 = require("@angular/core");
 // Home-made Interfaces - Services
 var experience_1 = require("./experience");
 var experiences_service_1 = require("./_service/experiences.service");
+// From http injectable get Map operator
+require("rxjs/add/operator/map");
 // Routeur
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 // From http injectable get Map operator
-require("rxjs/add/operator/map");
 require("rxjs/add/operator/switchMap");
-var AppListExperiences = (function () {
-    function AppListExperiences(_member, route, location) {
-        this._member = _member;
+var AppEditExperience = (function () {
+    // Constructor
+    function AppEditExperience(_members, // Create Memeber
+        route, location) {
+        this._members = _members;
         this.route = route;
         this.location = location;
-        this.mainTitle = "Experiences";
+        this.experiences = []; // Input Object
     }
-    AppListExperiences.prototype.ngOnInit = function () {
-        this._initMember(); // Init Members
-        this._initDetails();
+    // Life cycle
+    AppEditExperience.prototype.ngOnInit = function () {
+        this.model = new experience_1.Experience();
     };
-    AppListExperiences.prototype._initMember = function () {
+    AppEditExperience.prototype.ngAfterViewInit = function () {
+    };
+    AppEditExperience.prototype._onPatch = function (experience) {
         var _this = this;
-        // get Member with Id
+        // Submit form
         this.route.paramMap
-            .switchMap(function (params) { return _this._member
-            .getMemberProfil(+params.get('id')); })
-            .subscribe(function (iMemberSummary) { return _this.iMemberSummary = iMemberSummary; });
+            .switchMap(function (params) { return _this._members.createMemberObserv(+params.get('id'), experience); })
+            .subscribe(function (experience) {
+            _this.experiences.push(experience);
+        });
+        // add link to list
     };
-    AppListExperiences.prototype._initDetails = function () {
-        var _this = this;
-        // experiences details
-        this.route.paramMap
-            .switchMap(function (params) { return _this._member
-            .getMemberExperiences(+params.get('id')); })
-            .subscribe(function (iProfil) { return _this.iProfil = iProfil; });
-    };
-    AppListExperiences.prototype.getUpdateForm = function (memberId, id) {
-        // get Experience with Id and member Id
-        this._member.getThisMemberExperience(memberId, id)
-            .subscribe(function (experiences) { return experiences = experiences; });
-    };
-    return AppListExperiences;
+    return AppEditExperience;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", experience_1.Experience)
-], AppListExperiences.prototype, "model", void 0);
-AppListExperiences = __decorate([
+], AppEditExperience.prototype, "model", void 0);
+AppEditExperience = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'experiences',
-        templateUrl: '_html/experiences.component.html',
+        templateUrl: '_html/edit.experience.component.html',
         providers: [experiences_service_1.ExperienceService]
     }),
     __metadata("design:paramtypes", [experiences_service_1.ExperienceService,
         router_1.ActivatedRoute,
         common_1.Location])
-], AppListExperiences);
-exports.AppListExperiences = AppListExperiences;
-//# sourceMappingURL=list.experience.component.js.map
+], AppEditExperience);
+exports.AppEditExperience = AppEditExperience;
+//# sourceMappingURL=edit.experience.component.js.map

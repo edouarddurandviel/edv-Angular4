@@ -1,5 +1,5 @@
 // Component decorators
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Router } from '@angular/router';
 // Home-made Interfaces - Services
 import { Experience } from './experience';
@@ -25,15 +25,16 @@ import 'rxjs/add/operator/switchMap';
 })
 export class AppListExperiences implements OnInit{
 
-  mainTitle: string = "Experiences";
+  @Input() model: Experience;
 
-  /*memberId: number = 1;*/
+  mainTitle: string = "Experiences";
 
   iProfil: IntExperiences[];
 
   iMemberSummary: IntMembers[];
 
   iSkills: IntMemberWithSkills[];
+
 
   constructor(
     private _member: ExperienceService,
@@ -60,6 +61,12 @@ export class AppListExperiences implements OnInit{
       .switchMap((params: ParamMap) => this._member
       .getMemberExperiences(+params.get('id')))
       .subscribe(iProfil => this.iProfil = iProfil);
+  }
+
+  getUpdateForm(memberId: number, id: number): void {
+    // get Experience with Id and member Id
+    this._member.getThisMemberExperience(memberId, id)
+      .subscribe(experiences => experiences = experiences);
   }
 
 }

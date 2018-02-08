@@ -82,6 +82,12 @@ export class ExperienceService {
     .catch(this.handleError);
   }
 
+  getThisMemberExperience(memberId: number, id: number): Observable<IntExperiences[]>{
+    return this._http.get(this._experiencesUrl + '/Members/' + memberId + '/experience/' + id)
+    .map((res: Response) => <IntExperiences[]> res.json())
+    .catch(this.handleError);
+  }
+
 
   // erreurs
   private handleError(error: Response) {

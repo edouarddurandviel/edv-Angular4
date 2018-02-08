@@ -1,35 +1,30 @@
-<div class="left col-8">
-
-<div class="row" style="margin-top: 30px;">
-    <h3 class="clear-both" *ngIf='iMemberSummary'>{{iMemberSummary.firstname}} {{iMemberSummary.lastname}} - {{iMemberSummary.jobtitle}}</h3>
-  
-    <div class="col-12 experiences-list-items" *ngFor='let pro of iProfil'>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="h5">Job: <em>{{pro.job}}</em></h5>
-            <p class="card-text">Company: <em>{{pro.company}}</em></p>
-            <p class="card-text">From: <em>{{pro.began}}</em> To: <em>{{pro.ended}}</em></p>
-            <p class="card-text">{{pro.city}}</p>
-            <p class="card-text">{{pro.description}}</p>
+<div class="row experience-desc">
+    <div class="left col-8">
+      <h3 *ngIf='iMemberSummary'>{{iMemberSummary.firstname}} {{iMemberSummary.lastname}} - {{iMemberSummary.jobtitle}}</h3>
+      <div class="experiences-list-items" *ngFor='let pro of iProfil'>
+          <div class="card">
+            <div class="card-body" *ngIf='iMemberSummary'>
+              <a (click)="getUpdateForm(iMemberSummary.id, pro.id)">Edit</a>
+              <h5 class="h5">Job: <em>{{pro.job}}</em>--{{pro.id}}</h5>
+              <p class="card-text">Company: <em>{{pro.company}}</em></p>
+              <p class="card-text">From: <em>{{pro.began}}</em> To: <em>{{pro.ended}}</em></p>
+              <p class="card-text">{{pro.city}}</p>
+              <p class="card-text">{{pro.description}}</p>
+            </div>
           </div>
-        </div>
+      </div>
     </div>
-</div>
-
-</div>
-
-<div class="right col-4">
-
-  <div class="row skills" style="margin-top: 30px;"  *ngIf='iSkills'>
-    <h3 >Skills</h3>
-    <div class="col-12 skills-list-items" *ngFor='let skill of iSkills'>
-      <div class="card">
-          <div class="card-body">
-            <p class="card-text">Language: {{skill.language}}</p>
-            <p class="card-text">Level: {{skill.level}}</p>
+    <div class="right col-4">
+      <div class="skills" style="margin-top: 30px;"  *ngIf='iSkills'>
+          <h3 >Skills</h3>
+          <div class="skills-list-items" *ngFor='let skill of iSkills'>
+            <div class="card">
+                <div class="card-body">
+                  <p class="card-text">Language: {{skill.language}}</p>
+                  <p class="card-text">Level: {{skill.level}}</p>
+                </div>
+              </div>
           </div>
-        </div>
+      </div>
     </div>
-  </div>
-
 </div>
