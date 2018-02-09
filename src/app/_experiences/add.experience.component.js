@@ -44,9 +44,7 @@ var AppAddExperience = (function () {
         // Submit form
         this.route.paramMap
             .switchMap(function (params) { return _this._members.createMemberObserv(+params.get('id'), experience); })
-            .subscribe(function (experience) {
-            _this.experiences.push(experience);
-        });
+            .subscribe();
         this.pro.clear();
         setTimeout(function () {
             _this.ngAfterViewInit();

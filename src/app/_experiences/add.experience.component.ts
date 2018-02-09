@@ -32,6 +32,7 @@ export class AppAddExperience implements OnInit, AfterViewInit {
   @Input() model: Experience; // Form model name
 
   experiences: Experience[] = []; // Input Object
+
   added: boolean;
 
   // Constructor
@@ -55,9 +56,7 @@ export class AppAddExperience implements OnInit, AfterViewInit {
       // Submit form
       this.route.paramMap
       .switchMap((params: ParamMap) => this._members.createMemberObserv(+params.get('id'), experience))
-      .subscribe(experience => {
-          this.experiences.push(experience);
-        });
+      .subscribe();
         this.pro.clear();
         setTimeout( () => {
         this.ngAfterViewInit();
