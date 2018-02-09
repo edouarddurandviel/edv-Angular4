@@ -40,10 +40,7 @@ export class AppAddMembers implements OnInit, AfterViewInit {
 
     _onSubmit(member: Member): void {
           // Submit form
-          this._members.createMember(member)
-      .then(member => {
-          this.members.push(member);
-      });
+        this._members.createMemberObserv(member).subscribe();
         this.parents.clear();
         setTimeout( () => {
         this.ngAfterViewInit();

@@ -35,10 +35,7 @@ var AppAddMembers = (function () {
     AppAddMembers.prototype._onSubmit = function (member) {
         var _this = this;
         // Submit form
-        this._members.createMember(member)
-            .then(function (member) {
-            _this.members.push(member);
-        });
+        this._members.createMemberObserv(member).subscribe();
         this.parents.clear();
         setTimeout(function () {
             _this.ngAfterViewInit();
