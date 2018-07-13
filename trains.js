@@ -47,7 +47,7 @@
         switch(trains) {
             case trains[0].passagers > trains[1].passagers || trains[0].passagers > trains[2].passagers :
                 return {
-                    train_id: 1,
+                    train_id: 0,
                     isAuthorizedToTurn: enougthStations(this.train_id, trains[0].stations), 
                     pass: true, // return true
                     lets_turn: canTurn(this.isAuthorizedToTurn, trains[0]), // return true or false
@@ -55,7 +55,7 @@
             
             case trains[1].passagers > trains[0].passagers || trains[1].passagers > trains[2].passagers :
                 return {
-                    train_id: 2,
+                    train_id: 1,
                     isAuthorizedToTurn: enougthStations(this.train_id, trains[1].stations), 
                     pass: true, // return true
                     lets_turn: canTurn(this.isAuthorizedToTurn, trains[1]), // return true or false
@@ -63,7 +63,7 @@
             
             case trains[2].passagers > trains[0].passagers || trains[2].passagers > trains[1].passagers :
                 return {
-                    train_id: 3,
+                    train_id: 2,
                     isAuthorizedToTurn: enougthStations(this.train_id, trains[2].stations), 
                     pass: true,  // return true
                     lets_turn: canTurn(this.isAuthorizedToTurn, trains[2]), // return true or false
