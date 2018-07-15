@@ -86,8 +86,6 @@
         }
 
      
-
-
     setTimeout(canGo(), 1000);
  
 
