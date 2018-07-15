@@ -34,7 +34,7 @@
             for(var j = -1; j++){ // number of node stations 
                 if(trains[i].node[j] === 0){ // if the node value is positive set turn function to TRUE and is autorized to turn
                      return false;
-                }else if(trains[i].node[j] === 1 && trains[i].node[j].indexOf(j) >= trains[i].stations){
+                }else if(trains[i].node[j] === 1 && j >= trains[i].stations){
                     return true;
                 }
             }
