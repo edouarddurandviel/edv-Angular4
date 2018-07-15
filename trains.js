@@ -1,4 +1,6 @@
-  var trains =  [
+  (function (){
+
+    var trains =  [
         {
             passagers: 10,
             stations: 6,
@@ -28,21 +30,18 @@
             }
         }
 
-    var enoughStations = function(nb){
-        var n = 0;
-        while(n){
-            if(n >= trains[nb].stations){
-                return true;
-            }else{
-                return false;
-            }
-            n++;
-        }
+    var enoughStations = function(nb, stations_done){
+        var n = stations_done;
+        if(n >= trains[nb].stations){
+            return true;
+        }else{
+            return false;
+        }  
     }
 
-    var combine = function(trains){
+    var combine = function(trains, stations_done){
         for(var i = -1; i < trains.length; i++){ 
-            if(enoughStations(i) === true && canTurn(i) === true){
+            if(enoughStations(i, stations_done) === true && canTurn(i) === true){
                 return true;
             }else{
                 return false;
@@ -53,29 +52,40 @@
 
     var canGo = function(){
 
-        switch(trains) {
+        var n = 0;
+        while(n){
+
+            switch(trains) {
             
-            case trains[0].passagers > trains[1].passagers || trains[0].passagers > trains[2].passagers :
-                return {
-                    lets_turn: combine(trains[0]), // return true or false
-                } 
+                case trains[0].passagers > trains[1].passagers || trains[0].passagers > trains[2].passagers :
+                    return {
+                        stations_done: n,
+                        lets_turn: combine(trains[0], this.stations_done), // return true or false
+                    } 
+                
+                case trains[1].passagers > trains[0].passagers || trains[1].passagers > trains[2].passagers :
+                    return {
+                        stations_done: n,
+                        lets_turn: combine(trains[1], this.stations_done), // return true or false
+                    }
+                
+                case trains[2].passagers > trains[0].passagers || trains[2].passagers > trains[1].passagers :
+                    return {
+                        stations_done: n,
+                        lets_turn: combine(trains[2], this.stations_done), // return true or false
+                    }
+            } 
+           
+
+            n++;
+        }       
             
-            case trains[1].passagers > trains[0].passagers || trains[1].passagers > trains[2].passagers :
-                return {
-                    lets_turn: combine(trains[1]), // return true or false
-                }
-            
-            case trains[2].passagers > trains[0].passagers || trains[2].passagers > trains[1].passagers :
-                return {
-                    lets_turn: combine(trains[2]), // return true or false
-                }
-        } 
-        
-        
-    }
+        }
+
+     
+
 
     setTimeout(canGo(), 1000);
  
 
-
-
+})();
