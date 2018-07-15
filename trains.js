@@ -22,7 +22,7 @@
      // check if all the conditions are completed including if is it an interconnection ?
     var canTurn = function(train_id){
         var train = train_id;
-        for(var i = -1; i < train.length; i++){ // number of trains
+
             var j = -1;
             while(j){
                     if(train.node[j] === 0){ // if the node value is positive set turn function to TRUE and is autorized to turn
@@ -32,7 +32,7 @@
                     }
                 j++;
             }
-        }
+        
     }
 
 
