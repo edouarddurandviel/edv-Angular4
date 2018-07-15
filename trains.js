@@ -18,15 +18,6 @@
         }
     ];  
         
-    // check if the train has completed one way long trip 
-    /*var enougthStations = function(train_id, nb_Stations){
-            if(trains[train_id].stations === nb_Stations){ // Is this train has completed a oneway long trip ?
-                return true; // yes so is authorized to eventually change direction
-
-            }else{
-                return false;
-            }
-    }*/
 
      // check if all the conditions are completed including if is it an interconnection ?
     var canTurn = function(train_id){
