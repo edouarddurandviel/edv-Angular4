@@ -29,8 +29,8 @@
     }*/
 
      // check if all the conditions are completed including if is it an interconnection ?
-    var canTurn = function(trains){
-        var train = trains;
+    var canTurn = function(train_id){
+        var train = train_id;
         for(var i = -1; i < train.length; i++){ // number of trains
             var j = -1;
             while(j){
