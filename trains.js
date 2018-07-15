@@ -20,11 +20,11 @@
         
 
     
-    var canTurn = function(train_id){
-            for(var j = -1; j < train[train_id].node.length; j++){ 
-                if(train[train_id].node[j] === 0){ 
+    var canTurn = function(the_train){
+            for(var j = -1; j < the_train.node.length; j++){ 
+                if(the_train.node[j] === 0){ 
                     return false;
-                }else if(train[train_id].node[j] === 1){
+                }else if(the_train.node[j] === 1){
                     return true;
                 }
             }
@@ -39,14 +39,14 @@
         }  
     }
 
-    var combine = function(trains, stations_done){
-        for(var i = -1; i < trains.length; i++){ 
-            if(enoughStations(i, stations_done) === true && canTurn(i) === true){
-                return true;
-            }else{
-                return false;
-            }
+    var combine = function(the_train, stations_done){
+       
+        if(enoughStations(stations_done) === true && canTurn(the_train) === true){
+            return true;
+        }else{
+            return false;
         }
+        
     }
 
 
