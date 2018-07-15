@@ -30,9 +30,9 @@
             }
         }
 
-    var enoughStations = function(nb, stations_done){
+    var enoughStations = function(the_train, stations_done){
         var n = stations_done;
-        if(n >= trains[nb].stations){
+        if(n >= the_train.stations){
             return true;
         }else{
             return false;
@@ -41,7 +41,7 @@
 
     var combine = function(the_train, stations_done){
        
-        if(enoughStations(stations_done) === true && canTurn(the_train) === true){
+        if(enoughStations(the_train, stations_done) === true && canTurn(the_train) === true){
             return true;
         }else{
             return false;
