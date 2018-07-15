@@ -32,9 +32,9 @@
     var canTurn = function(enougthStations, trains){
         for(var i = -1; i < trains.length; i++){ // number of trains
             for(var j = -1; j < trains[i].node.length; j++){ // number of node stations 
-                if(trains[i].node[J] == 0 && enougthStations === false){ // if the node value is positive set turn function to TRUE and is autorized to turn
+                if(trains[i].node[J] === 0){ // if the node value is positive set turn function to TRUE and is autorized to turn
                      return false;
-                }else if(trains[i].node[J] == 1 && enougthStations === true){
+                }else if(trains[i].node[J] === 1 && enougthStations === true){
                     return true;
                 }
             }
