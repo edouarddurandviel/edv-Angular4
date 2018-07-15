@@ -59,18 +59,21 @@
             
                 case trains[0].passagers > trains[1].passagers || trains[0].passagers > trains[2].passagers :
                     return {
+                        train_id: 0,
                         stations_done: n,
                         lets_turn: combine(trains[0], this.stations_done), // return true or false
                     } 
                 
                 case trains[1].passagers > trains[0].passagers || trains[1].passagers > trains[2].passagers :
                     return {
+                        train_id: 1,
                         stations_done: n,
                         lets_turn: combine(trains[1], this.stations_done), // return true or false
                     }
                 
                 case trains[2].passagers > trains[0].passagers || trains[2].passagers > trains[1].passagers :
                     return {
+                        train_id: 2,
                         stations_done: n,
                         lets_turn: combine(trains[2], this.stations_done), // return true or false
                     }
