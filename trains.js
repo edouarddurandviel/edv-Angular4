@@ -30,12 +30,13 @@
 
      // check if all the conditions are completed including if is it an interconnection ?
     var canTurn = function(trains){
-        for(var i = -1; i < trains.length; i++){ // number of trains
+        var train = trains;
+        for(var i = -1; i < train.length; i++){ // number of trains
             var j = -1;
             while(j){
-                    if(trains[i].node[j] === 0){ // if the node value is positive set turn function to TRUE and is autorized to turn
+                    if(train.node[j] === 0){ // if the node value is positive set turn function to TRUE and is autorized to turn
                          return false;
-                    }else if(trains[i].node[j] === 1 && j >= trains[i].stations){
+                    }else if(train.node[j] === 1 && j >= train.stations){
                         return true;
                     }
                 j++;
