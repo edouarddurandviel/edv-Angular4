@@ -1,5 +1,5 @@
 // Component decorators
-import { Component, OnInit, AfterViewInit, ViewChild, Input} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Input, module} from '@angular/core';
 
 import { IntMembers } from '../_members/_interfaces/members';
 import { MembersService } from '../_members/_service/members.service';
