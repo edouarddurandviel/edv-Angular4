@@ -4,7 +4,7 @@
       <div class="experiences-list-items" *ngFor='let pro of iProfil'>
           <div class="card">
             <div class="card-body" *ngIf='iMemberSummary'>
-              <a (click)="getUpdateForm(iMemberSummary.id, pro.id)">Edit</a>
+              <a (click)="_getUpdateForm(iMemberSummary.id, pro.id, $event)">Edit</a>
               <h5 class="h5">Job: <em>{{pro.job}}</em>--{{pro.id}}</h5>
               <p class="card-text">Company: <em>{{pro.company}}</em></p>
               <p class="card-text">From: <em>{{pro.began}}</em> To: <em>{{pro.ended}}</em></p>

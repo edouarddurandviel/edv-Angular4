@@ -1,5 +1,6 @@
 "use strict";
-var ListView = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+var ListView = /** @class */ (function () {
     function ListView(component, data) {
     }
     return ListView;

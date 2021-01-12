@@ -1,0 +1,7 @@
+
+<ul class="photos-desc">
+  <li class="new-list-component" *ngFor='let list of pdesc | slice:0:4; let i=index'>
+    <span>{{list.id}}</span>
+    <img src="{{list.thumbnailUrl}}" alt="{{list.title}}" width="150px" height="150px">
+  </li>
+</ul>

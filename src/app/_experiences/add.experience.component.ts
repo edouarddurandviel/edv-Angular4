@@ -33,6 +33,8 @@ export class AppAddExperience implements OnInit, AfterViewInit {
 
   experiences: Experience[] = []; // Input Object
 
+  confirmation: any;
+
   added: boolean;
 
   // Constructor
@@ -55,12 +57,15 @@ export class AppAddExperience implements OnInit, AfterViewInit {
     _onSubmit(experience: Experience): void {
       // Submit form
       this.route.paramMap
-      .switchMap((params: ParamMap) => this._members.createMemberObserv(+params.get('id'), experience))
-      .subscribe();
-        this.pro.clear();
-        setTimeout( () => {
-        this.ngAfterViewInit();
-        }, 500 );
+      .switchMap(
+        (params: ParamMap) => this._members.createMemberObserv(+params.get('id'), experience)
+      ).subscribe();
+
+      this.pro.clear();
+
+      setTimeout( () => {
+      this.ngAfterViewInit();
+      }, 500 );
     }
 
     _load_ListComponent(): void {

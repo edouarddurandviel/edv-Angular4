@@ -8,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 require("rxjs/add/operator/filter");
-var BreadcrumbComponent = (function () {
+var BreadcrumbComponent = /** @class */ (function () {
     function BreadcrumbComponent(activatedRoute, router) {
         this.activatedRoute = activatedRoute;
         this.router = router;
@@ -52,15 +53,15 @@ var BreadcrumbComponent = (function () {
         }
         return breadcrumbs;
     };
+    BreadcrumbComponent = __decorate([
+        core_1.Component({
+            selector: 'breadcrumb',
+            template: "\n  <ol class=\"breadcrumb\">\n  <li class=\"breadcrumb-item active\"><a routerLink=\"\">Home</a></li>\n  <li class=\"breadcrumb-item active\" *ngFor=\"let breadcrumb of breadcrumbs\">{{breadcrumb.label}}</li>\n  </ol>\n  "
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            router_1.Router])
+    ], BreadcrumbComponent);
     return BreadcrumbComponent;
 }());
-BreadcrumbComponent = __decorate([
-    core_1.Component({
-        selector: 'breadcrumb',
-        template: "\n  <ol class=\"breadcrumb\">\n  <li class=\"breadcrumb-item active\"><a routerLink=\"\">Home</a></li>\n  <li class=\"breadcrumb-item active\" *ngFor=\"let breadcrumb of breadcrumbs\">{{breadcrumb.label}}</li>\n  </ol>\n  "
-    }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        router_1.Router])
-], BreadcrumbComponent);
 exports.BreadcrumbComponent = BreadcrumbComponent;
 //# sourceMappingURL=app.breadcrumb.component.js.map

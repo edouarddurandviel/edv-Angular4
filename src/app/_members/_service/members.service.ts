@@ -1,10 +1,10 @@
 
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { IntMembers } from './../_interfaces/members';
-import { Member } from './../member';
-import { IntMemberWithSkills } from './../_interfaces/membersWithSkills';
+import { HttpClient, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import { Observable } from 'rxjs/observable';
+import { IntMembers } from '../_interfaces/members';
+import { Member } from '../member';
+import { IntMemberWithSkills } from '../_interfaces/membersWithSkills';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -13,8 +13,6 @@ import 'rxjs/add/operator/toPromise';
 
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/throw';
-
-
 
 
 @Injectable()
@@ -26,7 +24,7 @@ export class MembersService {
   private _membersUrl = 'http://localhost:3000/api/Members';
 
   // constructeur
-  constructor(private _http: Http) {
+  constructor(private _http: HttpClient) {
       this.headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
       this.options = new RequestOptions({ headers: this.headers });
    }
@@ -39,8 +37,9 @@ export class MembersService {
   }
         // create a member with Promises
         createMember(member: Member): Promise<Member> {
+        let body = JSON.stringify(member);
           return this._http
-            .post( this._membersUrl, JSON.stringify(member), { headers: this.headers } )
+            .post( this._membersUrl, body, { headers: this.headers } )
             .toPromise()
             .then( this.extractData )
             .catch( this.promiseHandleError );
@@ -50,10 +49,8 @@ export class MembersService {
                   return Promise.reject(error.message || error);
               }
               private extractData(res: Response) {
-                if( res.ok == true){
                   let body = res.json();
-                    return body || { 'status': 'yes'};
-                }
+                    return body || {};
               }
 
         // TODO createMember en Observable

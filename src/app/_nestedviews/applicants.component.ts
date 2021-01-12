@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 // Services
 import { MembersService } from './Service/service';
-import { AppListMembers } from './../_members/list.members.component';
+import { AppListMembers } from '../_members/list.members.component';
 
 // Dynamic Component
 //import { HostDirective } from './../_DynamicComponent/Directive/hosting.directive';
@@ -21,10 +21,11 @@ interface IntMembers {
 
 @Component({
   moduleId: module.id,
-  selector: 'products',
+  selector: 'ng-products',
   templateUrl: 'html/app.applicants.component.html',
   providers: [MembersService]
 })
+
 export class AppApplicant implements AfterViewInit {
 
     mainTitle: string = "This component helps you to filter the output";
@@ -45,6 +46,5 @@ export class AppApplicant implements AfterViewInit {
        this.parent.createComponent(newAppMembers);
 
     }
-
 
 }

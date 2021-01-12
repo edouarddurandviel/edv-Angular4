@@ -8,13 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 // Component decorators
 var core_1 = require("@angular/core");
 var members_service_1 = require("./_service/members.service");
 // From http injectable get Map operator
 require("rxjs/add/operator/map");
-var AppListMembers = (function () {
-    // Constructor
+var AppListMembers = /** @class */ (function () {
+    // Empty Constructor
     function AppListMembers(_members) {
         this._members = _members;
         this.mainTitle = "Member List of CV's";
@@ -26,16 +27,16 @@ var AppListMembers = (function () {
         var _this = this;
         this._members.getMembers().subscribe(function (imembers) { return _this.imembers = imembers; }); // Members list
     };
+    AppListMembers = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'ng-products',
+            templateUrl: '_html/members.component.html',
+            providers: [members_service_1.MembersService]
+        }),
+        __metadata("design:paramtypes", [members_service_1.MembersService])
+    ], AppListMembers);
     return AppListMembers;
 }());
-AppListMembers = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'products',
-        templateUrl: '_html/members.component.html',
-        providers: [members_service_1.MembersService]
-    }),
-    __metadata("design:paramtypes", [members_service_1.MembersService])
-], AppListMembers);
 exports.AppListMembers = AppListMembers;
 //# sourceMappingURL=list.members.component.js.map

@@ -15,13 +15,13 @@ import 'rxjs/add/operator/map';
 })
 export class AppAddMembers implements OnInit, AfterViewInit {
 
-  @ViewChild('parents', { read: ViewContainerRef }) // Target seletor
+  @ViewChild('ng-parents', { read: ViewContainerRef }) // Target seletor
   parents: ViewContainerRef;
 
   @Input() model: Member; // Form model name
   members: Member[] = []; // Input Object
 
-  added: boolean;
+  addedMember: boolean;
 
   // Constructor
   constructor(
@@ -41,13 +41,14 @@ export class AppAddMembers implements OnInit, AfterViewInit {
     _onSubmit(member: Member): void {
           // Submit form
         this._members.createMemberObserv(member).subscribe();
-        this.parents.clear();
-        setTimeout( () => {
-        this.ngAfterViewInit();
-            }, 500 );
 
+          // Reload child component
+          this.parents.clear();
+          setTimeout( () => {
+          this.ngAfterViewInit();
+        }, 300);
+      }
 
-    }
 
     _load_ListComponent(): void {
         const newAppMembers = this.componentFactoryResolver.resolveComponentFactory(AppListMembers);

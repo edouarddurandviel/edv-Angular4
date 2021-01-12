@@ -20,7 +20,7 @@ import 'rxjs/add/operator/switchMap';
 
 @Component ({
    moduleId: module.id,
-   selector: 'products-desc',
+   selector: 'ng-products-desc',
    templateUrl: '_html/app.description.component.html',
    providers: [ExperienceService]
 })

@@ -1,11 +1,11 @@
 
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { HttpClient, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import { Observable } from 'rxjs/observable';
 
-import { TemplateMembersComponent } from './../../_DynamicComponent/template.component';
+import { TemplateMembersComponent } from '../../_DynamicComponent/template.component';
 // constuctor for Component
-import { ListView } from './../list.view';
+import { ListView } from '../list.view';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -28,7 +28,7 @@ export class MembersService {
   private _membersUrl = 'http://localhost:3000/api/Members';
 
   // constructeur
-  constructor(private _http: Http) {
+  constructor(private _http: HttpClient) {
       this.headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
       this.options = new RequestOptions({ headers: this.headers });
    }

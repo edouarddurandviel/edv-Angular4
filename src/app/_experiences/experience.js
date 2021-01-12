@@ -1,5 +1,6 @@
 "use strict";
-var Experience = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+var Experience = /** @class */ (function () {
     function Experience() {
     }
     return Experience;

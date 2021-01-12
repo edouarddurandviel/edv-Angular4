@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 // Component decorators
 var core_1 = require("@angular/core");
 // Home-made Interfaces - Services
@@ -21,11 +22,11 @@ var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 // From http injectable get Map operator
 require("rxjs/add/operator/switchMap");
-var AppAddExperience = (function () {
+var AppAddExperience = /** @class */ (function () {
     // Constructor
     function AppAddExperience(_members, // Create Memeber
-        componentFactoryResolver, // SwithView
-        route, location) {
+    componentFactoryResolver, // SwithView
+    route, location) {
         this._members = _members;
         this.componentFactoryResolver = componentFactoryResolver;
         this.route = route;
@@ -43,8 +44,7 @@ var AppAddExperience = (function () {
         var _this = this;
         // Submit form
         this.route.paramMap
-            .switchMap(function (params) { return _this._members.createMemberObserv(+params.get('id'), experience); })
-            .subscribe();
+            .switchMap(function (params) { return _this._members.createMemberObserv(+params.get('id'), experience); }).subscribe();
         this.pro.clear();
         setTimeout(function () {
             _this.ngAfterViewInit();
@@ -54,27 +54,27 @@ var AppAddExperience = (function () {
         var newAppExperiences = this.componentFactoryResolver.resolveComponentFactory(list_experience_component_1.AppListExperiences);
         this.pro.createComponent(newAppExperiences);
     };
+    __decorate([
+        core_1.ViewChild('pro', { read: core_1.ViewContainerRef }) // Target seletor
+        ,
+        __metadata("design:type", core_1.ViewContainerRef)
+    ], AppAddExperience.prototype, "pro", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", experience_1.Experience)
+    ], AppAddExperience.prototype, "model", void 0);
+    AppAddExperience = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            templateUrl: '_html/add.experience.component.html',
+            providers: [experiences_service_1.ExperienceService]
+        }),
+        __metadata("design:paramtypes", [experiences_service_1.ExperienceService,
+            core_1.ComponentFactoryResolver,
+            router_1.ActivatedRoute,
+            common_1.Location])
+    ], AppAddExperience);
     return AppAddExperience;
 }());
-__decorate([
-    core_1.ViewChild('pro', { read: core_1.ViewContainerRef }) // Target seletor
-    ,
-    __metadata("design:type", core_1.ViewContainerRef)
-], AppAddExperience.prototype, "pro", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", experience_1.Experience)
-], AppAddExperience.prototype, "model", void 0);
-AppAddExperience = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        templateUrl: '_html/add.experience.component.html',
-        providers: [experiences_service_1.ExperienceService]
-    }),
-    __metadata("design:paramtypes", [experiences_service_1.ExperienceService,
-        core_1.ComponentFactoryResolver,
-        router_1.ActivatedRoute,
-        common_1.Location])
-], AppAddExperience);
 exports.AppAddExperience = AppAddExperience;
 //# sourceMappingURL=add.experience.component.js.map

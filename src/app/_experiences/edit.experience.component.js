@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 // Component decorators
 var core_1 = require("@angular/core");
 // Home-made Interfaces - Services
@@ -20,10 +21,10 @@ var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 // From http injectable get Map operator
 require("rxjs/add/operator/switchMap");
-var AppEditExperience = (function () {
+var AppEditExperience = /** @class */ (function () {
     // Constructor
     function AppEditExperience(_members, // Create Memeber
-        route, location) {
+    route, location) {
         this._members = _members;
         this.route = route;
         this.location = location;
@@ -45,21 +46,21 @@ var AppEditExperience = (function () {
         });
         // add link to list
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", experience_1.Experience)
+    ], AppEditExperience.prototype, "model", void 0);
+    AppEditExperience = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            templateUrl: '_html/edit.experience.component.html',
+            providers: [experiences_service_1.ExperienceService]
+        }),
+        __metadata("design:paramtypes", [experiences_service_1.ExperienceService,
+            router_1.ActivatedRoute,
+            common_1.Location])
+    ], AppEditExperience);
     return AppEditExperience;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", experience_1.Experience)
-], AppEditExperience.prototype, "model", void 0);
-AppEditExperience = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        templateUrl: '_html/edit.experience.component.html',
-        providers: [experiences_service_1.ExperienceService]
-    }),
-    __metadata("design:paramtypes", [experiences_service_1.ExperienceService,
-        router_1.ActivatedRoute,
-        common_1.Location])
-], AppEditExperience);
 exports.AppEditExperience = AppEditExperience;
 //# sourceMappingURL=edit.experience.component.js.map

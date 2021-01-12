@@ -1,5 +1,6 @@
 "use strict";
-var Member = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+var Member = /** @class */ (function () {
     function Member(firstname, lastname, job, id) {
     }
     return Member;

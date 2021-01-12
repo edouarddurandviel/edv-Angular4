@@ -1,0 +1,15 @@
+
+<div class="row" style="margin-top: 30px;">
+<div class="col-4" *ngFor='let profils of imembers'>
+  <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{profils.firstname}} {{profils.lastname}}</h4>
+        <p class="card-text">{{profils.jobtitle}}</p>
+        <span>The id: {{profils.id}}</span>
+      </div>
+      <div class="card-body">
+        <a [routerLink]="['/Members', profils.id]" class="card-link">Get more info</a>
+      </div>
+  </div>
+</div>
+</div>

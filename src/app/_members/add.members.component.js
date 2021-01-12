@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 // Component decorators
 var core_1 = require("@angular/core");
 // Home-made Interfaces - Services
@@ -16,13 +17,13 @@ var members_service_1 = require("./_service/members.service");
 var list_members_component_1 = require("./list.members.component");
 // From http injectable get Map operator
 require("rxjs/add/operator/map");
-var AppAddMembers = (function () {
+var AppAddMembers = /** @class */ (function () {
     // Constructor
     function AppAddMembers(_members, // Create Memeber
-        componentFactoryResolver // SwithView
+    componentFactoryResolver // SwithView
     ) {
         this._members = _members;
-        this.componentFactoryResolver = componentFactoryResolver; // SwithView
+        this.componentFactoryResolver = componentFactoryResolver;
         this.members = []; // Input Object
     }
     // Life cycle
@@ -35,36 +36,38 @@ var AppAddMembers = (function () {
     AppAddMembers.prototype._onSubmit = function (member) {
         var _this = this;
         // Submit form
-        this._members.createMemberObserv(member).subscribe();
+        this._members.createMemberObserv(member)
+            .subscribe(function (newMember) { return _this.members.push(member); });
+        // Reload child component
         this.parents.clear();
         setTimeout(function () {
             _this.ngAfterViewInit();
-        }, 500);
+        }, 300);
     };
     AppAddMembers.prototype._load_ListComponent = function () {
         var newAppMembers = this.componentFactoryResolver.resolveComponentFactory(list_members_component_1.AppListMembers);
         this.parents.createComponent(newAppMembers);
     };
+    __decorate([
+        core_1.ViewChild('ng-parents', { read: core_1.ViewContainerRef }) // Target seletor
+        ,
+        __metadata("design:type", core_1.ViewContainerRef)
+    ], AppAddMembers.prototype, "parents", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", member_1.Member)
+    ], AppAddMembers.prototype, "model", void 0);
+    AppAddMembers = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            templateUrl: '_html/add.members.component.html',
+            providers: [members_service_1.MembersService]
+        }),
+        __metadata("design:paramtypes", [members_service_1.MembersService,
+            core_1.ComponentFactoryResolver // SwithView
+        ])
+    ], AppAddMembers);
     return AppAddMembers;
 }());
-__decorate([
-    core_1.ViewChild('parents', { read: core_1.ViewContainerRef }) // Target seletor
-    ,
-    __metadata("design:type", core_1.ViewContainerRef)
-], AppAddMembers.prototype, "parents", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", member_1.Member)
-], AppAddMembers.prototype, "model", void 0);
-AppAddMembers = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        templateUrl: '_html/add.members.component.html',
-        providers: [members_service_1.MembersService]
-    }),
-    __metadata("design:paramtypes", [members_service_1.MembersService,
-        core_1.ComponentFactoryResolver // SwithView
-    ])
-], AppAddMembers);
 exports.AppAddMembers = AppAddMembers;
 //# sourceMappingURL=add.members.component.js.map

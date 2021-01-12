@@ -1,10 +1,10 @@
 
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { IntExperiences } from './../_interfaces/experience';
-import { Experience } from './../experience';
-import { IntMembers } from './../../_members/_interfaces/members';
+import { HttpClient, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import { Observable } from 'rxjs/observable';
+import { IntExperiences } from '../_interfaces/experience';
+import { Experience } from '../experience';
+import { IntMembers } from '../../_members/_interfaces/members';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -27,7 +27,7 @@ export class ExperienceService {
   private _addexpeUrl = 'http://localhost:3000/api/Members/';
 
   // constructeur
-  constructor(private _http: Http) {
+  constructor(private _http: HttpClient) {
       this.headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
       this.options = new RequestOptions({ headers: this.headers });
    }

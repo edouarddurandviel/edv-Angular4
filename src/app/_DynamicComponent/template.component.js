@@ -8,21 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 // ListComponent
 var core_1 = require("@angular/core");
-var TemplateMembersComponent = (function () {
+var TemplateMembersComponent = /** @class */ (function () {
     function TemplateMembersComponent() {
     }
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], TemplateMembersComponent.prototype, "data", void 0);
+    TemplateMembersComponent = __decorate([
+        core_1.Component({
+            template: "\n    <div class=\"members\">\n      <h4>{{data.firstname}} {{data.lastname}}</h4>\n      <h5>{{data.jobtitle}}</h5>\n    </div>\n  "
+        })
+    ], TemplateMembersComponent);
     return TemplateMembersComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], TemplateMembersComponent.prototype, "data", void 0);
-TemplateMembersComponent = __decorate([
-    core_1.Component({
-        template: "\n    <div class=\"members\">\n      <h4>{{data.firstname}} {{data.lastname}}</h4>\n      <h5>{{data.jobtitle}}</h5>\n    </div>\n  "
-    })
-], TemplateMembersComponent);
 exports.TemplateMembersComponent = TemplateMembersComponent;
 //# sourceMappingURL=template.component.js.map

@@ -1,0 +1,8 @@
+
+<div class="photos">
+  <div class="new-list-component" *ngFor='let list of iphotos | slice:0:5; let i=index'>
+    <a [routerLink]="['/Albums', list.userId]"><h5>{{ list.title | truncate: 2}}</h5></a>
+    <p>the user ID is <em>{{list.userId}}</em></p>
+    <p>The product ID is {{list.id}}</p>
+  </div>
+</div>

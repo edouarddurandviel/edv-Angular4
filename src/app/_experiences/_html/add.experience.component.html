@@ -1,6 +1,7 @@
 <div class="col-12 experience">
 
-<h2 *ngFor='let expe of experiences'>{{expe.id}}</h2>
+
+<div *ngFor='let expe of confirmation'>{{expe.status}}</div>
   <form (ngSubmit)="_onSubmit(model); experienceForm.reset()" #experienceForm="ngForm">
       <div class="row"><div class="col-12">  <h2>Add a new experience !</h2></div></div>
     <div class="row">

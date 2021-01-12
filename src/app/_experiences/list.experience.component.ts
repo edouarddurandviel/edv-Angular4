@@ -1,6 +1,5 @@
 // Component decorators
-import { Component, OnInit, Input} from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 // Home-made Interfaces - Services
 import { Experience } from './experience';
 import { IntExperiences } from './_interfaces/experience';
@@ -19,7 +18,7 @@ import 'rxjs/add/operator/switchMap';
 
 @Component ({
     moduleId: module.id,
-    selector: 'experiences',
+    selector: 'ng-experiences',
     templateUrl: '_html/experiences.component.html',
     providers: [ExperienceService]
 })
@@ -27,7 +26,8 @@ export class AppListExperiences implements OnInit{
 
   @Input() model: Experience;
 
-  mainTitle: string = "Experiences";
+
+  mainTitle: string = 'Experiences';
 
   iProfil: IntExperiences[];
 
@@ -35,6 +35,7 @@ export class AppListExperiences implements OnInit{
 
   iSkills: IntMemberWithSkills[];
 
+  @Output() setDetails: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private _member: ExperienceService,
@@ -46,7 +47,6 @@ export class AppListExperiences implements OnInit{
       this._initMember(); // Init Members
       this._initDetails();
   }
-
 
   _initMember(): void {
     // get Member with Id
@@ -63,10 +63,13 @@ export class AppListExperiences implements OnInit{
       .subscribe(iProfil => this.iProfil = iProfil);
   }
 
-  getUpdateForm(memberId: number, id: number): void {
+  _getUpdateForm(memberId: number, id: number): void {
     // get Experience with Id and member Id
     this._member.getThisMemberExperience(memberId, id)
-      .subscribe(experiences => experiences = experiences);
+      .subscribe(experiences => this.setDetails.emit(experiences))
   }
+
+
+
 
 }

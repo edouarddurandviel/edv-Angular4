@@ -1,11 +1,11 @@
 // Component decorators
 import { Component } from '@angular/core';
 // From http injectable get Map operator
-import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/map';
 
 // Decorator for MetaData invoquing Components Edouard
 @Component ({
-   selector: 'demo-app',
+   selector: 'ng-demo-app',
    templateUrl: './app.component.html'
 })
 export class AppComponent  {
